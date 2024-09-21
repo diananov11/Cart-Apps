@@ -8,7 +8,7 @@ const CartItem = ({ image, price, title }) => {
     <>
       <div className="card container m-3 shadow">
         {/* <div className="d-flex justify-content-between align-items-center"> */}
-        <div className="row align-items-center">
+        <div className="row align-items-center justify-content-between">
           <div className="col-2">
             <img src={`${image}`} className="rounded img-fluid m-4" style={{ height: "8rem" }} alt="..." />
           </div>
