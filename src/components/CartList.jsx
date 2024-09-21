@@ -6,7 +6,7 @@ const CartList = ({ data }) => {
     <>
       <div className="container">
         {
-          data.map((item, index) => < CartItem key={index} item={item} image={item.image} />)}
+          data.map((item, index) => < CartItem key={index} title={item.title} price={item.price} image={item.image} />)}
       </div>
     </>
   )
