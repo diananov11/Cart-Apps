@@ -1,15 +1,31 @@
 import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-// import './App.css'
 import Navbar from './components/Navbar'
 import "bootstrap/dist/css/bootstrap.min.css"
 import CartList from './components/CartList'
-import CartItem from './components/CartItem'
+
 
 function App() {
   const [dataCart, setDataCart] = useState([]);
-  // const [totalItems, setTotalItems] = useState(0);
+  const [quantity, setQuantity] = useState([
+    { id: 1, counter: 1, price: 109.95 },
+    { id: 2, counter: 1, price: 22.30 },
+    { id: 3, counter: 1, price: 55.99 },
+    { id: 4, counter: 1, price: 15.99 },
+    { id: 5, counter: 1, price: 695.00 },
+  ]);
+
+  const totalCounter = quantity.reduce((accumulator, item) => {
+    return accumulator + item.counter;
+  }, 0);
+
+  const totalPrice = quantity.reduce((accumulator, item) => {
+    let subtotal = (accumulator + item.counter * item.price)
+    return subtotal;
+  }, 0);
+
+  setTimeout(() => {
+    totalPrice
+  }, 5000);
 
   const fetchApi = async () => {
     try {
@@ -25,13 +41,10 @@ function App() {
 
   useEffect(() => { fetchApi() }, [])
 
-
-
   return (
     <>
-      <Navbar />
-      <CartList data={dataCart} />
-
+      <Navbar total={totalCounter} />
+      <CartList data={dataCart} quantity={quantity} setQuantity={setQuantity} totalPrice={totalPrice} />
     </>
   )
 }

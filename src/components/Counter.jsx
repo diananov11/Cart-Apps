@@ -1,6 +1,3 @@
-
-
-
 const Counter = ({ counter, setCounter }) => {
 
 
@@ -14,9 +11,9 @@ const Counter = ({ counter, setCounter }) => {
   }
   return (
     <div className="d-flex align-items-center my-2 mx-3 gap-3">
-      <button onClick={() => handleOperation('+')} className="btn btn-primary">+</button>
-      <h1>{counter}</h1>
       <button onClick={() => handleOperation('-')} className="btn btn-primary">-</button>
+      <h1>{counter}</h1>
+      <button onClick={() => handleOperation('+')} className="btn btn-primary">+</button>
     </div>
   )
 }
