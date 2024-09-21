@@ -8,7 +8,8 @@ import CartList from './components/CartList'
 import CartItem from './components/CartItem'
 
 function App() {
-  const [dataCart, setDataCart] = useState([])
+  const [dataCart, setDataCart] = useState([]);
+  // const [totalItems, setTotalItems] = useState(0);
 
   const fetchApi = async () => {
     try {

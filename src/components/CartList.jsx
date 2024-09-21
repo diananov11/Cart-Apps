@@ -2,6 +2,7 @@ import CartItem from "./CartItem"
 
 
 const CartList = ({ data }) => {
+
   return (
     <>
       <div className="container">

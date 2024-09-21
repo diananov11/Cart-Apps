@@ -16,7 +16,7 @@ const Navbar = () => {
             <small className=" position-relative">
               <FaShoppingCart size={20} />
               <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                3
+                0
                 <span className="visually-hidden">cart total</span>
               </span>
             </small>

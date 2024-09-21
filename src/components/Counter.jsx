@@ -1,8 +1,8 @@
-import { useState } from "react"
 
 
-const Counter = () => {
-  const [counter, setCounter] = useState(1)
+
+const Counter = ({ counter, setCounter }) => {
+
 
   const handleOperation = (operation) => {
     if (operation === "+") {
