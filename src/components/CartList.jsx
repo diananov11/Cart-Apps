@@ -1,10 +1,14 @@
+import CartItem from "./CartItem"
 
 
-const CartList = () => {
+const CartList = ({ data }) => {
   return (
-    <div>
-
-    </div>
+    <>
+      <div className="container">
+        {
+          data.map((item, index) => < CartItem key={index} item={item} image={item.image} />)}
+      </div>
+    </>
   )
 }
 

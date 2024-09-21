@@ -5,7 +5,7 @@ const Navbar = () => {
   return (
     <>
       <nav className="navbar bg-body-tertiary container-fluid">
-        <div className="container flex">
+        <div className="container d-flex">
           <div className="">
             <a className="navbar-brand" href="#">
               <span>✨</span>
