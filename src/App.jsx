@@ -43,11 +43,9 @@ function App() {
 
   return (
     <>
-
       <Navbar total={totalCounter} />
       {isLoading ? <Loading /> :
         <CartList data={dataCart} quantity={quantity} setQuantity={setQuantity} totalPrice={totalPrice} />}
-      <Loading />
     </>
   )
 }
