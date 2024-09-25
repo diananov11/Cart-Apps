@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import Navbar from './components/Navbar'
 import "bootstrap/dist/css/bootstrap.min.css"
 import CartList from './components/CartList'
+import Loading from './components/Loading';
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
     { id: 4, counter: 1, price: 15.99 },
     { id: 5, counter: 1, price: 695.00 },
   ]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const totalCounter = quantity.reduce((accumulator, item) => {
     return accumulator + item.counter;
@@ -23,19 +25,17 @@ function App() {
     return subtotal;
   }, 0);
 
-  setTimeout(() => {
-    totalPrice
-  }, 5000);
-
   const fetchApi = async () => {
     try {
+      setIsLoading(true)
       let response = await fetch('https://fakestoreapi.com/products?limit=5')
       let data = await response.json()
-      console.log(data)
       setDataCart(data)
+      setIsLoading(false)
     }
     catch (e) {
       console.log(e)
+      alert(e)
     }
   }
 
@@ -43,8 +43,11 @@ function App() {
 
   return (
     <>
+
       <Navbar total={totalCounter} />
-      <CartList data={dataCart} quantity={quantity} setQuantity={setQuantity} totalPrice={totalPrice} />
+      {isLoading ? <Loading /> :
+        <CartList data={dataCart} quantity={quantity} setQuantity={setQuantity} totalPrice={totalPrice} />}
+      <Loading />
     </>
   )
 }
